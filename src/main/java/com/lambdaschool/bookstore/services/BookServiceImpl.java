@@ -68,12 +68,14 @@ public class BookServiceImpl
     {
         Book newBook = new Book();
 
+        System.out.println("in Book.save");
         if (book.getBookid() != 0)
         {
             bookrepos.findById(book.getBookid())
                     .orElseThrow(() -> new ResourceNotFoundException("Book id " + book.getBookid() + " not found!"));
         }
 
+        System.out.println("got book by id");
         newBook.setTitle(book.getTitle());
         newBook.setIsbn(book.getIsbn());
         newBook.setCopy(book.getCopy());
